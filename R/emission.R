@@ -91,7 +91,7 @@ emission <- function(meas_var, distribution, emission_params, incidence = TRUE, 
 
         # make sure that neither the measurement variable or emission parameters use "SELF" if strata are not specified
         if(is.null(strata)) {
-                if(grepl("SELF", meas_var) || sapply(emission_params, grepl, pattern = "SELF")) {
+                if(grepl("SELF", meas_var) || any(sapply(emission_params, grepl, pattern = "SELF"))) {
                         stop("The 'SELF' key word may only be used when the strata to which the emission distribution applies are specified.")
                 }
         }
