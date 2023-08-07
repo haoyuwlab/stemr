@@ -65,8 +65,8 @@ stem_measure <- function(emissions, dynamics, data = NULL, messages = FALSE) {
                 warnings("The observation times in the emission lists do not concord with the observation times in the data object.")
               }
               
-              if((class(data) != "list" && max(data[,1]) != dynamics$tmax) ||
-                 (class(data) == "list" && 
+              if((class(data)[1] != "list" && max(data[,1]) != dynamics$tmax) ||
+                 (class(data)[1] == "list" && 
                   max(sapply(data, function(x) max(x[,1]))) != dynamics$tmax)) {
                 warning("The maximum observation time in the data object is not equal to the maximum observation time in the emission lists.")
               }
